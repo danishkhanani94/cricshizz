@@ -2,22 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import {BrowserRouter, Route , Routes } from 'react-router-dom';
 
-import App from './App';
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+} from "react-router-dom";
+
+import App from './App'
 import Blog from './Blog'
-import BlogAll from './BlogsAll'
-import Login from './Login'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
-  <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/add-blog" element={<Blog />} />
-        <Route path="/blogs" element={<BlogAll />} />
-  </Routes>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/blog/detail/:id" element={<Blog />} />
+    </Routes>
   </BrowserRouter>
 );
 
