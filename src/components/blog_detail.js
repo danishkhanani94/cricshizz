@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { format , render, cancel, register} from "timeago.js";
+import { format, render, cancel, register } from "timeago.js";
 import { useParams } from "react-router-dom";
 
 const BlogDetail = () => {
@@ -119,29 +119,7 @@ const BlogDetail = () => {
                   </div>
                   <p className="article__summary">{Blogs.description}</p>
                   <div className="article__content">
-                    <p>
-                      Kamran Akmal (74 off 43) and Imam-ul-Haq (58 off 33), the
-                      Peshawar openers, were in quite the mood, putting on 135
-                      runs for the first wicket, thus setting the tone for a
-                      200-plus score in Karachi on Friday, 15 March.
-                    </p>
-                    <p>
-                      Peshawar Zalmi stormed into their third successive
-                      Pakistan Super League final, defeating defending champions
-                      Islamabad United by 48 runs in the second eliminator.
-                    </p>
-                    <p>
-                      Kamran Akmal (74 off 43) and Imam-ul-Haq (58 off 33), the
-                      Peshawar openers, were in quite the mood, putting on 135
-                      runs for the first wicket, thus setting the tone for a
-                      200-plus score in Karachi on Friday, 15 March.
-                    </p>
-                    <p>
-                      Chasing 215, Islamabad never really got going. Luke Ronchi
-                      (17 off 9) and Cameron Delport (28 off 25) started with a
-                      few big shots, but Hasan Ali and Chris Jordan soon made
-                      back-to-back breakthroughs.
-                    </p>
+                    <p>{Blogs.longdescription}</p>
                   </div>
                 </div>
               </article>
