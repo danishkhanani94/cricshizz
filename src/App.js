@@ -1,19 +1,18 @@
-import Header from './components/header'
-import Slider from './components/slider'
-import Join from './components/join'
-import EditorPicks from './components/editorspicks'
-import Footer from './components/footer'
+import Slider from "./components/slider";
+import Join from "./components/join";
+import EditorPicks from "./components/editorspicks";
+import Layout from "./Layouts/Layout";
 
-import './App.css'
+import "./App.css";
 
 function App() {
   return (
     <>
-      <Header />
-      <Slider />
-      <EditorPicks />
-      <Join />
-      <Footer />
+      <Layout>
+        <Slider />
+        {/* <EditorPicks /> */}
+        {/* <Join /> */}
+      </Layout>
     </>
   );
 }

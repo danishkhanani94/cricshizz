@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { format, render, cancel, register } from "timeago.js";
+import { format , render, cancel, register} from "timeago.js";
 import { useParams } from "react-router-dom";
 
 const BlogDetail = () => {
@@ -16,8 +16,11 @@ const BlogDetail = () => {
         });
     }
     getBlog();
-    if (window.twttr) {
-      window.twttr.widgets.load();
+    if (window.FB) {
+      window.FB.init({
+        xfbml: true,
+        version: "v15.0",
+      });
     }
   }, []);
   return (
@@ -26,7 +29,7 @@ const BlogDetail = () => {
       <main
         id="main-content"
         className="js-body-content uryerteuyteuygbc"
-        tabindex="0"
+        tabIndex="0"
       >
         <div className="article-header__fixed">
           <header
@@ -96,7 +99,7 @@ const BlogDetail = () => {
                       <div
                         className="hit-for-six__icon js-hit-for-six-button"
                         role="button"
-                        tabindex="0"
+                        tabIndex="0"
                       >
                         <span className="hit-for-six__clap-count-disc js-user-clap-counter"></span>
                         <svg className="hit-for-six__six-icon js-max-clap-total">
@@ -145,11 +148,24 @@ const BlogDetail = () => {
             </div>
             <div className="col-3 col-12-tab">
               <section>
-                <a
-                  className="twitter-timeline"
-                  href="https://twitter.com/ICC?ref_src=twsrc%5Etfw"
-                  data-tweet-limit="3"
-                ></a>
+                <div
+                  className="fb-page"
+                  data-href="https://www.facebook.com/cricshizz"
+                  data-tabs="timeline"
+                  data-width=""
+                  data-height="800px"
+                  data-small-header="false"
+                  data-adapt-container-width="true"
+                  data-hide-cover="false"
+                  data-show-facepile="true"
+                >
+                  <blockquote
+                    cite="https://www.facebook.com/cricshizz"
+                    className="fb-xfbml-parse-ignore"
+                  >
+                    <a href="https://www.facebook.com/cricshizz">Cric Shizz</a>
+                  </blockquote>
+                </div>
               </section>
             </div>
           </div>

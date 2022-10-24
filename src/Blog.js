@@ -1,15 +1,12 @@
-import Header from "./components/header";
-import Footer from "./components/footer";
 import Blogdetail from "./components/blog_detail";
-
-import "./App.css";
+import Layout from "./Layouts/Layout";
 
 function App() {
   return (
     <>
-      <Header />
-      <Blogdetail />
-      <Footer />
+      <Layout>
+        <Blogdetail />
+      </Layout>
     </>
   );
 }
