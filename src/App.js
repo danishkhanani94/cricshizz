@@ -1,5 +1,6 @@
 import Slider from "./components/slider";
 import Join from "./components/join";
+import Video from "./components/video";
 import EditorPicks from "./components/editorspicks";
 import Layout from "./Layouts/Layout";
 
@@ -9,6 +10,7 @@ function App() {
   return (
     <>
       <Layout>
+        <Video />
         <Slider />
         {/* <EditorPicks /> */}
         {/* <Join /> */}

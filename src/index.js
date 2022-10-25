@@ -1,23 +1,21 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import reportWebVitals from "./reportWebVitals";
 
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import App from './App'
-import Blog from './Blog'
+import App from "./App";
+import Blog from "./pages/Blog";
+import Blogs from "./pages/Blogs";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/blog/detail/:id" element={<Blog />} />
+      <Route path="/blogs" element={<Blogs />} />
     </Routes>
   </BrowserRouter>
 );

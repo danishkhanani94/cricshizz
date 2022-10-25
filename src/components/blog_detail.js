@@ -52,17 +52,24 @@ const BlogDetail = () => {
                       <svg className="icon">
                         <use
                           xmlnsXlink="http://www.w3.org/1999/xlink"
-                          xlinkHref="../resources/prod/v8.28.1/i/svg-output/icons.svg#icn-article"
+                          xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-article"
                         ></use>
                       </svg>
-                      <span className="article-header__tag"></span>
+                      <span className="article-header__tag">
+                        {Blogs?.match_category}{" "}
+                      </span>
                       <time className="article-header__published">
-                        {format(Blogs.created_at, "en_US")}
+                        {format(Blogs?.created_at, "en_US")}
                       </time>
                     </div>
                     <h1 className="article-header__title-text js-page-title">
                       {Blogs.title}
                     </h1>
+                    <h3 class="article-header__subtitle js-article-header-subtitle pl-0">
+                      {Blogs?.team_a}
+                      {Blogs.team_a ? " VS " : ""}
+                      {Blogs?.team_b}
+                    </h3>
                   </div>
                 </div>
               </div>
@@ -80,43 +87,6 @@ const BlogDetail = () => {
                 data-tracker-status="false"
               >
                 <div className="article__container">
-                  <div
-                    className="hit-for-six"
-                    data-widget="hit-for-six"
-                    data-reaction-type="TEXT"
-                    data-reaction-id="2349447"
-                    data-analytics-label="Shaun Pollock: Wicket-taking phenom and batting maestro"
-                  >
-                    <div className="hit-for-six__label-wrapper  js-hit-for-six">
-                      <div className="hit-for-six__labels">
-                        <div className="hit-for-six__title">Hit For Six!</div>
-                        <div className="hit-for-six__section">
-                          <div className="hit-for-six__counter js-clap-counter">
-                            -
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="hit-for-six__icon js-hit-for-six-button"
-                        role="button"
-                        tabIndex="0"
-                      >
-                        <span className="hit-for-six__clap-count-disc js-user-clap-counter"></span>
-                        <svg className="hit-for-six__six-icon js-max-clap-total">
-                          <use
-                            xmlnsXlink="http://www.w3.org/1999/xlink"
-                            xlinkHref="../resources/prod/v8.28.1/i/svg-output/icons.svg#icn-hit-for-six"
-                          ></use>
-                        </svg>
-                        <svg className="hit-for-six__hand-icon js-reaction-trigger">
-                          <use
-                            xmlnsXlink="http://www.w3.org/1999/xlink"
-                            xlinkHref="../resources/prod/v8.28.1/i/svg-output/icons.svg#icn-thumbs-up-solid-w"
-                          ></use>
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
                   <p className="article__summary">{Blogs.description}</p>
                   <div className="article__content">
                     <p>{Blogs.longdescription}</p>

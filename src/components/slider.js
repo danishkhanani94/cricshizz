@@ -27,7 +27,7 @@ const LitBlog = (props) => {
                     <img
                       className="js-faded-image fade-in-on-load object-fit-cover-picture__img"
                       src={`${process.env.REACT_APP_BUCKET_URL}${blog.banner_main}`}
-                      alt="Fan Craze 16.9"
+                      alt={blog?.title}
                     />
                   </picture>
                 </div>
@@ -35,7 +35,7 @@ const LitBlog = (props) => {
             </header>
             <div className="media-thumbnail__meta">
               <span className="media-thumbnail__tag theme theme-t20wc">
-                {blog.short_title}
+                {blog.match_category}
               </span>
               <h1 className="media-thumbnail__heading">{blog.title}</h1>
               <time className="media-thumbnail__date">
@@ -73,7 +73,7 @@ const BigBlogSlide = (props) => {
                     <img
                       className="js-faded-image fade-in-on-load object-fit-cover-picture__img"
                       src={`${process.env.REACT_APP_BUCKET_URL}${blog.banner_main}`}
-                      alt="David Warner Player of the Tournament"
+                      alt={blog?.title}
                     />
                   </picture>
                 </div>
@@ -82,7 +82,7 @@ const BigBlogSlide = (props) => {
             <div className="lead-media-item__container">
               <div className="lead-media-item__tag">
                 <span className="lead-media-item__tag-text theme theme-t20wc">
-                  {blog?.short_title}
+                  {blog?.match_category}
                 </span>
               </div>
               <h1 className="lead-media-item__heading">{blog?.title}</h1>
@@ -99,11 +99,10 @@ const BigBlogSlide = (props) => {
   );
 };
 
-const Slider = () => {
+const Slider = (props) => {
   const [Blogs, SetBlogs] = useState([]);
 
   useEffect(() => {
-    document.querySelectorAll("video")[0].play();
     async function getBlogs() {
       await axios
         .get(`${process.env.REACT_APP_SERVER_URL}blogs/`)
@@ -159,78 +158,6 @@ const Slider = () => {
           </div>
         </div>
       </section> */}
-      <section className="video-hero video-hero--top ">
-        <Link className="video-hero__banner">
-          <div
-            className="inline-player video-hero__video-container"
-            data-script="icc_video"
-            data-widget="video-player"
-          >
-            <div
-              playsinline="true"
-              loop="true"
-              muted="true"
-              autoplay="true"
-              className="video-js vjs-controls-disabled vjs-workinghover vjs-v7 bc-player-default_default bc-player-default_default-index-0 vjs-mouse vjs-plugins-ready vjs-player-info vjs-contextmenu vjs-contextmenu-ui vjs-errors vjs-playing vjs-has-started vjs-layout-medium vjs-user-inactive"
-              data-application-id=""
-              data-embed="default"
-              data-player="default"
-              data-account="3910869736001"
-              data-video-id="6302950251001"
-              id="iccVideoPlayer2563965"
-              tabindex="-1"
-              role="region"
-              lang="en"
-              translate="no"
-              aria-label="Video Player"
-            >
-              <video
-                id="iccVideoPlayer2563965_html5_api"
-                data-video-id="6302950251001"
-                data-account="3910869736001"
-                data-player="default"
-                data-embed="default"
-                data-application-id=""
-                className="vjs-tech"
-                muted="muted"
-                loop={true}
-                playsInline="playsinline"
-                tabIndex="-1"
-                role="application"
-                src="https://cricshizz.com.pk/videos/slider.mp4"
-              ></video>
-              <script src="https://vjs.zencdn.net/vttjs/0.15.3/vtt.global.min.js"></script>
-              <div
-                className="vjs-text-track-display"
-                translate="yes"
-                aria-live="off"
-                aria-atomic="true"
-              >
-                <div
-                  style={{ position: "absolute", inset: "0px", margin: "1.5%" }}
-                ></div>
-              </div>
-            </div>
-          </div>
-          <div class="video-hero__overlay"></div>
-          <div class="video-hero__overlay-bottom-gradient"></div>
-          <div class="video-hero__text">
-            <div class="wrapper">
-              <div class="col-12">
-                <p
-                  class="video-hero__tag video-hero__tag--womens-world-cup"
-                  title="Women's Cricket World Cup"
-                >
-                  #ItHasBegun
-                </p>
-                <h1 class="video-hero__title">
-                  For Every Match There Is A Moment To Capture
-                </h1>
-              </div>
-            </div>
-          </div>
-        </Link>
-      </section>
       <section className="content-hero ">
         <div className="constraint-wrapper">
           <div className="content-hero__container">
@@ -241,7 +168,7 @@ const Slider = () => {
                 }
               })}
             </div>
-            <div className="content-hero__block-layout content-hero__block-layout--cards">
+            <div className="content-hero__block-layout content-hero__block-layout--cards smdown_grid">
               {Blogs?.map((v, i) => {
                 if (i !== 0 && i < 5) {
                   return <LitBlog key={i} data={v} />;
@@ -249,6 +176,19 @@ const Slider = () => {
               })}
             </div>
           </div>
+          {props.all === true ? (
+            <div className="content-hero__container">
+              <div className="content-hero__block-layout content-hero__block-layout--cards w-100 smdown_grid">
+                {Blogs?.map((v, i) => {
+                  if (i >= 5) {
+                    return <LitBlog key={i} data={v} />;
+                  }
+                })}
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
         </div>
       </section>
     </>

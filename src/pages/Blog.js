@@ -1,5 +1,5 @@
-import Blogdetail from "./components/blog_detail";
-import Layout from "./Layouts/Layout";
+import Blogdetail from "../components/blog_detail";
+import Layout from "../Layouts/Layout";
 
 function App() {
   return (
