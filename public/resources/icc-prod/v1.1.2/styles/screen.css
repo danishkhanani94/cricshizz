@@ -669,7 +669,7 @@ td, th {
     --secondary: #fff;
     --bg-col: var(--primary);
     --text-col: #0d1635;
-    --logo: url(../i/logos/t20wc.svg);
+    --logo: url(../i/logos/criclogo.png);
     --logo-bg: #fff;
     --logo-size: 66%
 }

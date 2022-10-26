@@ -12,7 +12,9 @@ const LitBlog = (props) => {
         data-itemlist-id="2841517"
       >
         <article
-          className="media-thumbnail media-thumbnail--no-bg-responsive media-thumbnail--show-publish-date"
+          className={`media-thumbnail media-thumbnail--no-bg-responsive media-thumbnail--show-publish-date ${
+            props.all === true ? "carddes-new" : ""
+          }`}
           data-widget="lazy-load-images"
         >
           <Link
@@ -38,8 +40,9 @@ const LitBlog = (props) => {
                 {blog.match_category}
               </span>
               <h1 className="media-thumbnail__heading">{blog.title}</h1>
-              <time className="media-thumbnail__date">
-                {format(blog.created_at, "en_US")}
+              <time className="media-thumbnail__date flex_rmbtn_new">
+                {format(blog.created_at, "en_US")}{" "}
+                <button className="rmore_btn">Read More</button>
               </time>
             </div>
           </Link>
@@ -79,7 +82,7 @@ const BigBlogSlide = (props) => {
                 </div>
               </div>
             </header>
-            <div className="lead-media-item__container">
+            <div className="lead-media-item__container w-100">
               <div className="lead-media-item__tag">
                 <span className="lead-media-item__tag-text theme theme-t20wc">
                   {blog?.match_category}
@@ -87,8 +90,9 @@ const BigBlogSlide = (props) => {
               </div>
               <h1 className="lead-media-item__heading">{blog?.title}</h1>
               <div className="lead-media-item__meta">
-                <time className="lead-media-item__date">
-                  {format(blog.created_at, "en_US")}
+                <time className="lead-media-item__date flex_rmbtn_new w-100">
+                  {format(blog.created_at, "en_US")}{" "}
+                  <button className="rmore_btn">Read More</button>
                 </time>
               </div>
             </div>
@@ -161,27 +165,38 @@ const Slider = (props) => {
       <section className="content-hero ">
         <div className="constraint-wrapper">
           <div className="content-hero__container">
-            <div className="content-hero__block-layout content-hero__block-layout--lead-media-item">
+            <div
+              className={`content-hero__block-layout content-hero__block-layout--lead-media-item ${
+                props.all === true ? "min-hei-400px" : ""
+              }`}
+            >
               {Blogs?.map((v, i) => {
                 if (i === 0) {
                   return <BigBlogSlide key={i} data={v} />;
                 }
               })}
             </div>
-            <div className="content-hero__block-layout content-hero__block-layout--cards smdown_grid">
-              {Blogs?.map((v, i) => {
-                if (i !== 0 && i < 5) {
-                  return <LitBlog key={i} data={v} />;
-                }
-              })}
-            </div>
+
+            {props.all === true ? (
+              ""
+            ) : (
+              <div className="content-hero__block-layout content-hero__block-layout--cards smdown_grid">
+                {Blogs?.map((v, i) => {
+                  if (i !== 0 && i < 5) {
+                    return <LitBlog key={i} data={v} />;
+                  }
+                })}
+              </div>
+            )}
           </div>
           {props.all === true ? (
             <div className="content-hero__container">
-              <div className="content-hero__block-layout content-hero__block-layout--cards w-100 smdown_grid">
+              <div
+                className={`content-hero__block-layout content-hero__block-layout--cards w-100 smdown_grid`}
+              >
                 {Blogs?.map((v, i) => {
-                  if (i >= 5) {
-                    return <LitBlog key={i} data={v} />;
+                  if (i >= 1) {
+                    return <LitBlog key={i} data={v} all={props.all} />;
                   }
                 })}
               </div>
