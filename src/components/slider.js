@@ -12,9 +12,7 @@ const LitBlog = (props) => {
         data-itemlist-id="2841517"
       >
         <article
-          className={`media-thumbnail media-thumbnail--no-bg-responsive media-thumbnail--show-publish-date ${
-            props.all === true ? "carddes-new" : ""
-          }`}
+          className={`media-thumbnail media-thumbnail--no-bg-responsive media-thumbnail--show-publish-date `}
           data-widget="lazy-load-images"
         >
           <Link
@@ -40,9 +38,8 @@ const LitBlog = (props) => {
                 {blog.match_category}
               </span>
               <h1 className="media-thumbnail__heading">{blog.title}</h1>
-              <time className="media-thumbnail__date flex_rmbtn_new">
+              <time className="media-thumbnail__date">
                 {format(blog.created_at, "en_US")}{" "}
-                <button className="rmore_btn">Read More</button>
               </time>
             </div>
           </Link>
@@ -92,7 +89,7 @@ const BigBlogSlide = (props) => {
               <div className="lead-media-item__meta">
                 <time className="lead-media-item__date flex_rmbtn_new w-100">
                   {format(blog.created_at, "en_US")}{" "}
-                  <button className="rmore_btn">Read More</button>
+                  <button className="rmore_btn">Read More &gt;&gt;</button>
                 </time>
               </div>
             </div>
@@ -105,11 +102,11 @@ const BigBlogSlide = (props) => {
 
 const Slider = (props) => {
   const [Blogs, SetBlogs] = useState([]);
-
+  const limit = props.all == true ? 10 : 5;
   useEffect(() => {
     async function getBlogs() {
       await axios
-        .get(`${process.env.REACT_APP_SERVER_URL}blogs/`)
+        .get(`${process.env.REACT_APP_SERVER_URL}blogs/all/0/${limit}`)
         .then((res) => {
           SetBlogs(res.data[0].Data);
         });
@@ -176,18 +173,13 @@ const Slider = (props) => {
                 }
               })}
             </div>
-
-            {props.all === true ? (
-              ""
-            ) : (
-              <div className="content-hero__block-layout content-hero__block-layout--cards smdown_grid">
-                {Blogs?.map((v, i) => {
-                  if (i !== 0 && i < 5) {
-                    return <LitBlog key={i} data={v} />;
-                  }
-                })}
-              </div>
-            )}
+            <div className="content-hero__block-layout content-hero__block-layout--cards smdown_grid">
+              {Blogs?.map((v, i) => {
+                if (i !== 0 && i < 5) {
+                  return <LitBlog key={i} data={v} />;
+                }
+              })}
+            </div>
           </div>
           {props.all === true ? (
             <div className="content-hero__container">
@@ -195,7 +187,7 @@ const Slider = (props) => {
                 className={`content-hero__block-layout content-hero__block-layout--cards w-100 smdown_grid`}
               >
                 {Blogs?.map((v, i) => {
-                  if (i >= 1) {
+                  if (i > 4) {
                     return <LitBlog key={i} data={v} all={props.all} />;
                   }
                 })}

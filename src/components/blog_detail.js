@@ -7,10 +7,11 @@ const BlogDetail = () => {
   const [Blogs, SetBlogs] = useState({});
   const param = useParams();
   useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     let { id } = param;
     async function getBlog() {
       await axios
-        .get(`${process.env.REACT_APP_SERVER_URL}blogs/${id}`)
+        .get(`${process.env.REACT_APP_SERVER_URL}blogs/getByID/${id}`)
         .then((res) => {
           SetBlogs(res.data[0].Data[0]);
         });

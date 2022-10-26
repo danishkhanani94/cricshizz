@@ -1130,10 +1130,8 @@
 }
 
 .rmore_btn {
-    background: linear-gradient(118.35deg, hsla(0, 0%, 100%, .12), hsla(0, 0%, 100%, .05) 57.29%);
-    backdrop-filter: blur(1rem);
+    background: transparent;
+    text-transform: uppercase;
     padding: 1.2rem 0.8rem 1.2rem;
     border: none;
-    width: 115px;
-    margin-right: 10px;
 }
