@@ -12,7 +12,7 @@ function App() {
       <Layout>
         <Video />
         <Slider />
-        {/* <EditorPicks /> */}
+        <EditorPicks />
         {/* <Join /> */}
       </Layout>
     </>
