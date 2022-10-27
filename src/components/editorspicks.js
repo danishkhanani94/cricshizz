@@ -195,7 +195,31 @@ const Editorpicks = (props) => {
           ) : (
             ""
           )}
-          <header className="widget-header"></header>
+          <header className="widget-header">
+            {props.all == true ? (
+              ""
+            ) : (
+              <>
+                <h2 className="widget-header__title ">Gallery</h2>
+                <Link
+                  to={`/gallery`}
+                  className="widget-header-link  u-hide-tablet"
+                  title="More Galleries"
+                >
+                  More <span>Galleries</span>{" "}
+                  <svg
+                    className="icon widget-header-link__icon"
+                    aria-hidden="true"
+                  >
+                    <use
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                      xlinkHref="resources/icc-prod/v1.1.2/i/svg-output/icons.svg#icn-chevron-right"
+                    ></use>
+                  </svg>
+                </Link>
+              </>
+            )}
+          </header>
           <div
             className={`${
               props.all === true ? "" : "content-listing__container"
