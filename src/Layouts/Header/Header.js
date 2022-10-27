@@ -93,7 +93,7 @@ const Header = () => {
                   </li>
 
                   <li className="linked-list__item">
-                    <Link className="linked-list__link" to="news.html">
+                    <Link className="linked-list__link" to="/gallery">
                       Gallery
                     </Link>
                   </li>

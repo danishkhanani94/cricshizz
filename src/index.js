@@ -8,6 +8,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import App from "./App";
 import Blog from "./pages/Blog";
 import Blogs from "./pages/Blogs";
+import Gallery from "./pages/Gallery";
+import SingleGallery from "./pages/SingleGallery";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,6 +18,8 @@ root.render(
       <Route path="/" element={<App />} />
       <Route path="/blog/detail/:id" element={<Blog />} />
       <Route path="/blogs" element={<Blogs />} />
+      <Route path="/gallery" element={<Gallery />} />
+      <Route path="/gallery/:id" element={<SingleGallery />} />
     </Routes>
   </BrowserRouter>
 );
