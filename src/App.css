@@ -1151,3 +1151,21 @@ body {
 .mt-0 {
     margin-top: 0 !important;
 }
+.text-align-center{
+    text-align: center;
+}
+.search_nscc{
+    border-radius: 30px 30px;
+    padding: 9px 20px;
+    margin: 20px;
+    width: -webkit-fill-available;
+    max-width: 500px;
+    border: 1px solid white;
+    font-size: 16px;
+    line-height: 1;
+    color: #000000 !important;
+}
+
+.mt-10px{
+    margin-top: 10px;
+}
