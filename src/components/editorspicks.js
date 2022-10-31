@@ -1,21 +1,34 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { format, render, cancel, register } from "timeago.js";
+import { format } from "timeago.js";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const Editorpicks = (props) => {
   const [Gallery, SetGallery] = useState([]);
-  const limit = props.all == true ? 100 : 6;
+  const [limitStart, SetLimitStart] = useState(0);
+  const [limit, SetLimit] = useState(props.all === true ? 20 : 6);
+  const [more, SetMore] = useState(true);
+
+  async function getGallery(s, e) {
+    await axios
+      .get(`${process.env.REACT_APP_SERVER_URL}gallery/all/${s}/${e}`)
+      .then((res) => {
+        SetGallery(Gallery.concat(res.data[0].Data));
+        if (!res.data[0].Data) {
+          SetMore(false);
+        }
+        SetLimit(limit + 20);
+        SetLimitStart(limitStart + 20);
+      });
+  }
   useEffect(() => {
-    async function getGallery() {
-      await axios
-        .get(`${process.env.REACT_APP_SERVER_URL}gallery/all/0/${limit}`)
-        .then((res) => {
-          SetGallery(res.data[0].Data);
-        });
-    }
-    getGallery();
+    getGallery(limitStart, limit);
   }, []);
+
+  const fetchMoreData = () => {
+    getGallery(limitStart, limit);
+  };
 
   const GalleryCard = ({ data }) => {
     return (
@@ -226,17 +239,22 @@ const Editorpicks = (props) => {
             }`}
           >
             {props.all === true ? (
-              <div className="content-hero__container">
-                <div
-                  className={`content-hero__block-layout content-hero__block-layout--cards w-100 smdown_grid`}
-                >
-                  {Gallery?.map((v, i) => {
-                    if (i > 4) {
-                      return <LitGallery key={i} data={v} all={props.all} />;
-                    }
-                  })}
+              <InfiniteScroll
+                dataLength={Gallery.length}
+                next={fetchMoreData}
+                hasMore={more}
+                style={{ overflow: "hidden" }}
+              >
+                <div className="content-hero__container">
+                  <div
+                    className={`content-hero__block-layout content-hero__block-layout--cards w-100 smdown_grid`}
+                  >
+                    {Gallery?.map((v, i) => (
+                      <LitGallery key={i} data={v} all={props.all} />
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </InfiniteScroll>
             ) : (
               <>
                 {Gallery?.map((v, i) => {

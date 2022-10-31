@@ -1,0 +1,43 @@
+    {/* Coming Soon Section Top */}
+      {/* <section
+        className="match-card-list u-hide-tablet is-active"
+        data-widget="match-card-list"
+        data-script="icc-cricket_match-card-list"
+      >
+        <div className="constraint-wrapper">
+          <div className="content-slider">
+            <div className="match-card-list__controls-container">
+              <div className="match-card-list__tabs">
+                <button
+                  className="match-card-list__button js-show-results is-active"
+                  title="Results"
+                >
+                  Results
+                </button>
+              </div>
+            </div>
+
+            <div
+              className="content-slider__wrapper js-scroll-list"
+              data-widget="match-card-container"
+              data-template="common.match-card-list-desktop"
+              data-manually-curated="false"
+              data-sort="asc"
+              data-match-states="C,U,L"
+              data-match-types="OTHER,T20I,T20,TEST,ODI,FIRST_CLASS,LIST_A"
+              data-team-types="b,w,m"
+              data-tournament-types="WI,I"
+              data-page-size="30"
+              data-is-carousel="true"
+            >
+              <ul className="js-content-slider-content content-slider__inner-wrapper js-match-cards-container">
+                <h1 className="configurable-promo__title text-blue coming-soon-text">
+                  Comming Soon
+                </h1>
+              </ul>
+            </div>
+
+            <ul className="pager js-paginator u-hide-tablet "></ul>
+          </div>
+        </div>
+      </section> */}

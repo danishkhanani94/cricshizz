@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { format, render, cancel, register } from "timeago.js";
+import { format } from "timeago.js";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const LitBlog = (props) => {
   const blog = props.data;
@@ -102,63 +103,32 @@ const BigBlogSlide = (props) => {
 
 const Slider = (props) => {
   const [Blogs, SetBlogs] = useState([]);
-  const limit = props.all == true ? 10 : 5;
+  const [limitStart, SetLimitStart] = useState(0);
+  const [limit, SetLimit] = useState(props.all === true ? 20 : 5);
+  const [more, SetMore] = useState(true);
+  async function getBlogs(s, e) {
+    await axios
+      .get(`${process.env.REACT_APP_SERVER_URL}blogs/all/${s}/${e}`)
+      .then((res) => {
+        SetBlogs(Blogs.concat(res.data[0].Data));
+        if (!res.data[0].Data) {
+          SetMore(false);
+        }
+        SetLimit(limit + 20);
+        SetLimitStart(limitStart + 20);
+      });
+  }
+
+  const fetchMoreData = () => {
+    getBlogs(limitStart, limit);
+  };
+
   useEffect(() => {
-    async function getBlogs() {
-      await axios
-        .get(`${process.env.REACT_APP_SERVER_URL}blogs/all/0/${limit}`)
-        .then((res) => {
-          SetBlogs(res.data[0].Data);
-        });
-    }
-    getBlogs();
+    getBlogs(limitStart, limit);
   }, []);
 
   return (
     <>
-      {/* Coming Soon Section Top */}
-      {/* <section
-        className="match-card-list u-hide-tablet is-active"
-        data-widget="match-card-list"
-        data-script="icc-cricket_match-card-list"
-      >
-        <div className="constraint-wrapper">
-          <div className="content-slider">
-            <div className="match-card-list__controls-container">
-              <div className="match-card-list__tabs">
-                <button
-                  className="match-card-list__button js-show-results is-active"
-                  title="Results"
-                >
-                  Results
-                </button>
-              </div>
-            </div>
-
-            <div
-              className="content-slider__wrapper js-scroll-list"
-              data-widget="match-card-container"
-              data-template="common.match-card-list-desktop"
-              data-manually-curated="false"
-              data-sort="asc"
-              data-match-states="C,U,L"
-              data-match-types="OTHER,T20I,T20,TEST,ODI,FIRST_CLASS,LIST_A"
-              data-team-types="b,w,m"
-              data-tournament-types="WI,I"
-              data-page-size="30"
-              data-is-carousel="true"
-            >
-              <ul className="js-content-slider-content content-slider__inner-wrapper js-match-cards-container">
-                <h1 className="configurable-promo__title text-blue coming-soon-text">
-                  Comming Soon
-                </h1>
-              </ul>
-            </div>
-
-            <ul className="pager js-paginator u-hide-tablet "></ul>
-          </div>
-        </div>
-      </section> */}
       <section className="content-hero ">
         <div className="constraint-wrapper">
           <div className="content-hero__container">
@@ -182,17 +152,24 @@ const Slider = (props) => {
             </div>
           </div>
           {props.all === true ? (
-            <div className="content-hero__container">
-              <div
-                className={`content-hero__block-layout content-hero__block-layout--cards w-100 smdown_grid`}
-              >
-                {Blogs?.map((v, i) => {
-                  if (i > 4) {
-                    return <LitBlog key={i} data={v} all={props.all} />;
-                  }
-                })}
+            <InfiniteScroll
+              dataLength={Blogs.length}
+              next={fetchMoreData}
+              hasMore={more}
+              style={{ overflow: "hidden" }}
+            >
+              <div className="content-hero__container">
+                <div
+                  className={`content-hero__block-layout content-hero__block-layout--cards w-100 smdown_grid`}
+                >
+                  {Blogs?.map((v, i) => {
+                    if (i > 4) {
+                      return <LitBlog key={i} data={v} all={props.all} />;
+                    }
+                  })}
+                </div>
               </div>
-            </div>
+            </InfiniteScroll>
           ) : (
             ""
           )}
