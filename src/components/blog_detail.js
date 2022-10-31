@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { format, render, cancel, register } from "timeago.js";
+import { format } from "timeago.js";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const BlogDetail = () => {
   const [Blogs, SetBlogs] = useState({});
@@ -94,6 +95,13 @@ const BlogDetail = () => {
                   </div>
                 </div>
               </article>
+              {Blogs.gallery !== undefined && Blogs.gallery !== 0 ? (
+                <Link to={`/gallery/${Blogs.gallery}`}>
+                  <button className="btn_v_glry">View Gallery</button>
+                </Link>
+              ) : (
+                ""
+              )}
             </div>
             <div className="col-3 col-12-tab">
               <section>

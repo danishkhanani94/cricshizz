@@ -1169,3 +1169,16 @@ body {
 .mt-10px{
     margin-top: 10px;
 }
+.btn_v_glry{
+    font-weight: 700;
+    fill: #525252;
+    color: #fff;
+    background-color: var(--primary);
+    border-style: solid;
+    border-width: 1px 1px 1px 1px;
+    border-color: #fff;
+    border-radius: 7px 7px 7px 7px;
+    min-width: 250px;
+    box-shadow: 0px 3px 17px 0px rgb(0 0 0 / 11%);
+    padding: 20px 30px 20px 30px;
+}
