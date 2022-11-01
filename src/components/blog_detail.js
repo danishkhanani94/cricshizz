@@ -90,18 +90,29 @@ const BlogDetail = () => {
               >
                 <div className="article__container">
                   <p className="article__summary">{Blogs.description}</p>
+                  <div className="text-align-center embeddable-cta mb-3">
+                      {Blogs.gallery !== undefined && Blogs.gallery !== 0 ? (
+                        <Link
+                          to={`/gallery/${Blogs.gallery}`}
+                          className="btn_v_glry embeddable-cta__button embeddable-cta__button--gradient-bg"
+                        >
+                          View Gallery{" "}
+                          <svg class="embeddable-cta__arrow">
+                            <use
+                              xmlnsXlink="http://www.w3.org/1999/xlink"
+                              xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-chevron-right"
+                            ></use>
+                          </svg>
+                        </Link>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                   <div className="article__content">
                     <p>{Blogs.longdescription}</p>
                   </div>
                 </div>
               </article>
-              {Blogs.gallery !== undefined && Blogs.gallery !== 0 ? (
-                <Link to={`/gallery/${Blogs.gallery}`}>
-                  <button className="btn_v_glry">View Gallery</button>
-                </Link>
-              ) : (
-                ""
-              )}
             </div>
             <div className="col-3 col-12-tab">
               <section>

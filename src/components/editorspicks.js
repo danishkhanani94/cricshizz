@@ -22,6 +22,13 @@ const Editorpicks = (props) => {
         SetLimitStart(limitStart + 20);
       });
   }
+  async function getGallerySearch(s, e, search) {
+    await axios
+      .get(`${process.env.REACT_APP_SERVER_URL}gallery/all/${s}/${e}/${search}`)
+      .then((res) => {
+        SetGallery(res.data[0].Data);
+      });
+  }
   useEffect(() => {
     getGallery(limitStart, limit);
   }, []);
@@ -176,6 +183,29 @@ const Editorpicks = (props) => {
   };
   return (
     <>
+      {props.all === true ? (
+        <header className="page-header">
+          <div className="wrapper">
+            <div className="col-12">
+              <div className="page-header__banner mt-10px text-align-center">
+                <h1 className="page-title">Gallery </h1>
+              </div>
+              <div className="text-align-center">
+                <input
+                  type="text"
+                  className="search_nscc"
+                  onChange={(e) => {
+                    getGallerySearch(0, 200, e.target.value);
+                  }}
+                  placeholder="Search By Album  ..."
+                />
+              </div>
+            </div>
+          </div>
+        </header>
+      ) : (
+        ""
+      )}
       <section
         className={`${
           props.all === true
@@ -184,7 +214,7 @@ const Editorpicks = (props) => {
         } `}
       >
         <div className="constraint-wrapper">
-          {props.all == true ? (
+          {props.all === true ? (
             <div className="content-hero__container">
               <div
                 className={`content-hero__block-layout content-hero__block-layout--lead-media-item ${
@@ -209,7 +239,7 @@ const Editorpicks = (props) => {
             ""
           )}
           <header className="widget-header">
-            {props.all == true ? (
+            {props.all === true ? (
               ""
             ) : (
               <>
@@ -249,9 +279,13 @@ const Editorpicks = (props) => {
                   <div
                     className={`content-hero__block-layout content-hero__block-layout--cards w-100 smdown_grid`}
                   >
-                    {Gallery?.map((v, i) => (
-                      <LitGallery key={i} data={v} all={props.all} />
-                    ))}
+                    {Gallery?.map((v, i) =>
+                      i >= 5 ? (
+                        <LitGallery key={i} data={v} all={props.all} />
+                      ) : (
+                        ""
+                      )
+                    )}
                   </div>
                 </div>
               </InfiniteScroll>
