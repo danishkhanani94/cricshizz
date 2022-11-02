@@ -8,45 +8,8 @@ const Header = () => {
           {/* Top Bar */}
           <section className="main-navigation__top-bar">
             <nav className="site-tabs">
-              <ul className="site-tabs__list">
-                <li className="site-tabs__item theme theme-icc is-active">
-                  <a
-                    className="site-tabs__link"
-                    href="https://icc-cricket.com/hompage"
-                  >
-                    ICC Cricket
-                  </a>
-                </li>
-                <li className="site-tabs__item theme theme-t20wc">
-                  <a
-                    className="site-tabs__link"
-                    href="https://t20worldcup.com/"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Men’s T20 World Cup 2022
-                  </a>
-                </li>
-                <li className="site-tabs__item theme theme-wcwc">
-                  <a
-                    className="site-tabs__link"
-                    href="https://www.cricketworldcup.com/"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    Women’s Cricket World Cup 2022
-                  </a>
-                </li>
-                <li className="site-tabs__item theme theme-wtc">
-                  <a
-                    className="site-tabs__link"
-                    href="world-test-championship/overview.html"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    World Test Championship
-                  </a>
-                </li>
+              <ul className="site-tabs__list footer__corporate pt-10px pb-10px">
+                <span className="footer__copyright">2022 © cricshizz.com.pk</span>
               </ul>
             </nav>
           </section>
@@ -86,12 +49,6 @@ const Header = () => {
                       Home
                     </Link>
                   </li>
-                  <li className="linked-list__item">
-                    <Link className="linked-list__link" to="/">
-                      Teams
-                    </Link>
-                  </li>
-
                   <li className="linked-list__item">
                     <Link className="linked-list__link" to="/gallery">
                       Gallery
