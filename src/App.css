@@ -1206,6 +1206,10 @@ body {
     transition: all .2s ease-out;
 }
 
+.styles_column__2r45X img:hover{
+    cursor: pointer;
+}
+
 .embeddable-cta__button:before {
     content: "";
     display: -ms-flexbox;

@@ -158,8 +158,33 @@ const Slider = (props) => {
       ) : (
         ""
       )}
-      <section className="content-hero ">
+      <section className="content-hero">
         <div className="constraint-wrapper">
+          <header className="widget-header">
+            {props.all === true ? (
+              ""
+            ) : (
+              <>
+                <h2 className="widget-header__title ">Featured Blogs</h2>
+                <Link
+                  to={`/blogs`}
+                  className="widget-header-link  u-hide-tablet"
+                  title="view more"
+                >
+                  view <span>more</span>{" "}
+                  <svg
+                    className="icon widget-header-link__icon"
+                    aria-hidden="true"
+                  >
+                    <use
+                      xmlnsXlink="http://www.w3.org/1999/xlink"
+                      xlinkHref="resources/icc-prod/v1.1.2/i/svg-output/icons.svg#icn-chevron-right"
+                    ></use>
+                  </svg>
+                </Link>
+              </>
+            )}
+          </header>
           <div className="content-hero__container">
             <div
               className={`content-hero__block-layout content-hero__block-layout--lead-media-item ${

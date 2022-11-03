@@ -152,7 +152,7 @@ const Footer = () => {
             <nav className="social-follow ">
               <h6 className="social-follow__title">Follow Us</h6>
               <a
-                href="https://www.facebook.com/icc/"
+                href="https://www.facebook.com/cricshizz/"
                 target="_blank"
                 rel="noreferrer"
                 className="social-follow__item social-follow__item--facebook"
@@ -166,21 +166,7 @@ const Footer = () => {
                 <span className="u-screen-reader">label.follow.facebook</span>
               </a>
               <a
-                href="https://twitter.com/ICC"
-                target="_blank"
-                rel="noreferrer"
-                className="social-follow__item social-follow__item--twitter"
-              >
-                <svg className="icon " aria-hidden="true">
-                  <use
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    xlinkHref="/resources/icc-prod/v1.1.2/i/svg-output/icons.svg#icn-twitter-color"
-                  ></use>
-                </svg>
-                <span className="u-screen-reader">label.follow.twitter</span>
-              </a>
-              <a
-                href="https://www.instagram.com/icc/"
+                href="https://www.instagram.com/cricshizz/"
                 target="_blank"
                 rel="noreferrer"
                 className="social-follow__item social-follow__item--instagram"
@@ -192,20 +178,6 @@ const Footer = () => {
                   ></use>
                 </svg>
                 <span className="u-screen-reader">label.follow.instagram</span>
-              </a>
-              <a
-                href="https://www.youtube.com/user/CricketICC?cbrd=1"
-                target="_blank"
-                rel="noreferrer"
-                className="social-follow__item social-follow__item--youtube"
-              >
-                <svg className="icon " aria-hidden="true">
-                  <use
-                    xmlnsXlink="http://www.w3.org/1999/xlink"
-                    xlinkHref="/resources/icc-prod/v1.1.2/i/svg-output/icons.svg#icn-youtube-color"
-                  ></use>
-                </svg>
-                <span className="u-screen-reader">label.follow.youtube</span>
               </a>
             </nav>
 

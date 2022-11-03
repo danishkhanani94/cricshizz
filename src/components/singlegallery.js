@@ -24,7 +24,7 @@ const SingleGallery = (props) => {
       <section className={`content-listing theme-highlight widget`}>
         <div className="constraint-wrapper">
           <header className="widget-header"></header>
-          <Lightroom images={images} settings={settings} />
+          <Lightroom images={images} settings={settings} className="img_hov_cur_pointer"/>
         </div>
       </section>
     </>

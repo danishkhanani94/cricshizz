@@ -247,9 +247,9 @@ const Editorpicks = (props) => {
                 <Link
                   to={`/gallery`}
                   className="widget-header-link  u-hide-tablet"
-                  title="More Galleries"
+                  title="view more"
                 >
-                  More <span>Galleries</span>{" "}
+                  view <span>more</span>{" "}
                   <svg
                     className="icon widget-header-link__icon"
                     aria-hidden="true"

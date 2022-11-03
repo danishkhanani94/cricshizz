@@ -27,7 +27,7 @@ function App() {
         <header className="page-header">
           <div className="wrapper">
             <div className="col-12">
-              <div className="page-header__banner">
+              <div className="page-header__banner text-align-center">
                 <h1 className="page-title">{Name}</h1>
               </div>
             </div>
