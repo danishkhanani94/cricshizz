@@ -17,7 +17,7 @@ const Footer = () => {
                   >
                     <img
                       className="partners__image"
-                      src="https://resources.pulse.icc-cricket.com/photo-resources/2022/06/30/ceabcea6-36b3-40c5-ab00-7ad8b66ecd73/nissan-2.png?width=142&height=46"
+                      src="/sponsers/GSC.jpg"
                       alt="Bira 91"
                     />
                   </a>

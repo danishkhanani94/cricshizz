@@ -17,7 +17,11 @@ body {
         font-size: 4.2rem
     }
 }
-
+@media (max-width:999px) {
+.video-hero__banner{
+    min-height: auto !important;
+}
+}
 
 @media (max-width:52.49em) {
     .article-header__title-text {

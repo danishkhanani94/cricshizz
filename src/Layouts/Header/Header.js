@@ -9,7 +9,9 @@ const Header = () => {
           <section className="main-navigation__top-bar">
             <nav className="site-tabs">
               <ul className="site-tabs__list footer__corporate pt-10px pb-10px">
-                <span className="footer__copyright">2022 © cricshizz.com.pk</span>
+                <span className="footer__copyright">
+                  2022 © cricshizz.com.pk
+                </span>
               </ul>
             </nav>
           </section>
@@ -205,21 +207,18 @@ const Header = () => {
                     <span className="icn icn-logo-icc-nav icn_logo_main"></span>
                     <span className="u-screen-reader">label.ICCHome</span>
                   </Link>
-                  <a
+                  <Link
                     className="sub-menu__link "
-                    href="rankings/mens/overview.html"
+                    to="/gallery"
                   >
-                    Rankings
-                  </a>
-                  <a className="sub-menu__link " href="news.html">
-                    News
-                  </a>
-                  <a className="sub-menu__link " href="https://welcome.icc.tv/">
-                    ICC.tv
-                  </a>
+                    Gallery
+                  </Link>
+                  <Link className="sub-menu__link " to="/blogs">
+                    Blogs
+                  </Link>
                 </nav>
               </div>
-
+{/* 
               <button
                 className="hamburger js-mobile-nav-btn"
                 type="button"
@@ -1309,7 +1308,7 @@ const Header = () => {
                     </div>
                   </li>
                 </ul>
-              </nav>
+              </nav> */}
             </div>
           </section>
         </header>
