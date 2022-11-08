@@ -1232,3 +1232,15 @@ body {
     border-radius: 50%;
     color: #00175f;
 }
+
+.partners__item{
+    width: 140px;
+    height: 45px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.partners__item img{
+    height: 100%;
+    width: 100%;
+}
