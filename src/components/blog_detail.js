@@ -3,6 +3,7 @@ import axios from "axios";
 import { format } from "timeago.js";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import MetaTags from "react-meta-tags";
 
 const BlogDetail = () => {
   const [Blogs, SetBlogs] = useState({});
@@ -110,11 +111,11 @@ const BlogDetail = () => {
                   </div>
                   <div className="article__content">
                     <p>{Blogs.longdescription}</p>
-                      <img
-                        src={`${process.env.REACT_APP_BUCKET_URL}${Blogs.banner_main}`}
-                        alt="Shaun Pollock"
-                        className="article-header__img"
-                      />
+                    <img
+                      src={`${process.env.REACT_APP_BUCKET_URL}${Blogs.banner_main}`}
+                      alt="Shaun Pollock"
+                      className="article-header__img"
+                    />
                   </div>
                 </div>
               </article>
@@ -144,6 +145,21 @@ const BlogDetail = () => {
           </div>
         </div>
       </main>
+      <MetaTags>
+        <meta name="author" content={`${process.env.REACT_APP_NAME}`} />
+        <meta property="og:url" content={window.location.href} />
+        <title>{`${process.env.REACT_APP_NAME} | ${Blogs?.title}`} </title>
+        <meta name="description" content={Blogs?.description} />
+        <meta
+          property="og:title"
+          content={`${process.env.REACT_APP_NAME} | ${Blogs?.title}`}
+        />
+        <meta
+          property="og:image"
+          content={`${process.env.REACT_APP_BUCKET_URL}${Blogs?.banner_main}`}
+        />
+        <meta property="og:type" content="website" />
+      </MetaTags>
     </>
   );
 };
