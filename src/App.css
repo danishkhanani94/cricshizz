@@ -16,6 +16,9 @@ body {
     .article-header__title-text {
         font-size: 4.2rem
     }
+    .main-navigation__logo{
+        display: none;
+    }
 }
 @media (max-width:999px) {
 .video-hero__banner{
@@ -1243,4 +1246,8 @@ body {
 .partners__item img{
     height: 100%;
     width: 100%;
+}
+
+.icn-logo-icc-nav{
+    height: 50px;
 }
