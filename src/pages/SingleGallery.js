@@ -33,7 +33,11 @@ function App() {
             </div>
           </div>
         </header>
-        <SingleGallery all={true} Gallery={Gallery} />
+        {Gallery.length > 0 ? (
+          <SingleGallery all={true} Gallery={Gallery} />
+        ) : (
+          ""
+        )}
       </Layout>
     </>
   );
