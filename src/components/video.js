@@ -7,7 +7,7 @@ const SliderVideo = () => {
   return (
     <>
       <section className="video-hero video-hero--top ">
-        <Link className="video-hero__banner">
+        <div className="video-hero__banner">
           <div
             className="inline-player video-hero__video-container"
             data-script="icc_video"
@@ -31,6 +31,7 @@ const SliderVideo = () => {
               aria-label="Video Player"
             >
               <video
+                width="620"
                 id="iccVideoPlayer2563965_html5_api"
                 data-video-id="6302950251001"
                 data-account="3910869736001"
@@ -38,12 +39,13 @@ const SliderVideo = () => {
                 data-embed="default"
                 data-application-id=""
                 className="vjs-tech"
-                muted="muted"
-                loop={true}
-                playsInline={true}
+                loop
+                autoPlay
+                muted
                 tabIndex="-1"
                 role="application"
-                src="https://cricshizz.com.pk/videos/slider.mp4"
+                src="/video/slider.mp4"
+                poster="https://bucket.cricshizz.com.pk/files/5b54635-c23a-1c4a-7ea-07575014dfeMainPic.jpg"
               ></video>
               <script src="https://vjs.zencdn.net/vttjs/0.15.3/vtt.global.min.js"></script>
               <div
@@ -75,7 +77,7 @@ const SliderVideo = () => {
               </div>
             </div>
           </div>
-        </Link>
+        </div>
       </section>
     </>
   );
