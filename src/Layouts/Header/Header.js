@@ -42,7 +42,7 @@ const Header = () => {
                     >
                       <use
                         xmlnsXlink="http://www.w3.org/1999/xlink"
-                        xlinkHref="resources/icc-prod/v1.1.2/i/svg-output/icons.svg#icn-cross"
+                        xlinkHref="/resources/icc-prod/v1.1.2/i/svg-output/icons.svg#icn-cross"
                       ></use>
                     </svg>
                   </span>
@@ -131,7 +131,7 @@ const Header = () => {
                     >
                       <use
                         xmlnsXlink="http://www.w3.org/1999/xlink"
-                        xlinkHref="resources/icc-prod/v1.1.2/i/svg-output/icons.svg#icn-cross"
+                        xlinkHref="/resources/icc-prod/v1.1.2/i/svg-output/icons.svg#icn-cross"
                       ></use>
                     </svg>
                   </span>
@@ -181,7 +181,7 @@ const Header = () => {
                           <svg className="icon " aria-hidden="true">
                             <use
                               xmlnsXlink="http://www.w3.org/1999/xlink"
-                              xlinkHref="resources/icc-prod/v1.1.2/i/svg-output/icons.svg#icn-facebook-color"
+                              xlinkHref="/resources/icc-prod/v1.1.2/i/svg-output/icons.svg#icn-facebook-color"
                             ></use>
                           </svg>
                           <span className="u-screen-reader">
@@ -197,7 +197,7 @@ const Header = () => {
                           <svg className="icon " aria-hidden="true">
                             <use
                               xmlnsXlink="http://www.w3.org/1999/xlink"
-                              xlinkHref="resources/icc-prod/v1.1.2/i/svg-output/icons.svg#icn-instagram"
+                              xlinkHref="/resources/icc-prod/v1.1.2/i/svg-output/icons.svg#icn-instagram"
                             ></use>
                           </svg>
                           <span className="u-screen-reader">

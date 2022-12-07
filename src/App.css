@@ -1263,3 +1263,20 @@ video[poster] {
     width: 100% !important;
     object-fit: cover !important;
 }
+
+.object-fit-cover-picture__img {
+    margin: auto auto;
+    right: 0;
+}
+
+.main-navigation__mobile-list .linked-list__item a {
+    text-decoration: none;
+}
+
+.rigth_6_dwn.embeddable-cta__button:before {
+    right: 0.6rem;
+}
+
+.justify-content-right{
+    justify-content: right;
+}

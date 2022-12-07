@@ -1,8 +1,10 @@
 import Lightroom from "react-lightbox-gallery";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const SingleGallery = (props) => {
+  const param = useParams();
   var data = props.Gallery[0]?.innerimages;
   const [limitstart, SetLimitstart] = useState(0);
   const [limit, SetLimit] = useState(20);
@@ -38,11 +40,26 @@ const SingleGallery = (props) => {
     SetLimit(limit + 10);
     SetLimitstart(limitstart + 10);
   };
+
   return (
     <>
       <section className={`content-listing theme-highlight widget`}>
         <div className="constraint-wrapper">
-          <header className="widget-header"></header>
+          <header className="widget-header justify-content-right">
+            <a
+              href={`${process.env.REACT_APP_SERVER_URL}gallery/downloadall/${param?.id}`}
+              target="_blank"
+              className="btn_v_glry rigth_6_dwn embeddable-cta__button embeddable-cta__button--gradient-bg"
+            >
+              Download All
+              <svg className="embeddable-cta__arrow">
+                <use
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-criiio-download"
+                ></use>
+              </svg>
+            </a>
+          </header>
           {Data.length > 0 ? (
             <InfiniteScroll
               dataLength={Data.length}
