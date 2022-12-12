@@ -128,7 +128,7 @@ const BlogDetail = () => {
                   </div>
                   <div className="article__content">
                     <p>{Blogs.longdescription}</p>
-                    <div className="text-align-center embeddable-cta mb-3">
+                    {/* <div className="text-align-center embeddable-cta mb-3">
                       {Blogs.gallery !== undefined && Blogs.gallery !== 0 ? (
                         <Link
                           to={`/gallery/${Blogs.gallery}`}
@@ -142,6 +142,26 @@ const BlogDetail = () => {
                             ></use>
                           </svg>
                         </Link>
+                      ) : (
+                        ""
+                      )}
+                    </div> */}
+                    
+                    <div className="text-align-center embeddable-cta mb-3">
+                      {Blogs.fb_gallery !== undefined && Blogs.fb_gallery !== "" ? (
+                        <a
+                        target="_blank"
+                        href={`${Blogs.fb_gallery}`}
+                          className="btn_v_glry embeddable-cta__button embeddable-cta__button--gradient-bg"
+                        >
+                          View Gallery{" "}
+                          <svg class="embeddable-cta__arrow">
+                            <use
+                              xmlnsXlink="http://www.w3.org/1999/xlink"
+                              xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-chevron-right"
+                            ></use>
+                          </svg>
+                        </a>
                       ) : (
                         ""
                       )}

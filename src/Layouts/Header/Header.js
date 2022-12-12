@@ -53,11 +53,11 @@ const Header = () => {
                       Home
                     </Link>
                   </li>
-                  <li className="linked-list__item">
+                  {/* <li className="linked-list__item">
                     <Link className="linked-list__link" to="/gallery">
                       Gallery
                     </Link>
-                  </li>
+                  </li> */}
 
                   <li className="linked-list__item">
                     <Link className="linked-list__link" to="/blogs">
@@ -147,7 +147,7 @@ const Header = () => {
                       </button>
                     </Link>
                   </li>
-                  <li className="linked-list__item">
+                  {/* <li className="linked-list__item">
                     <Link to={`/gallery`}>
                       <button
                         className="linked-list__dropdown-label js-dropdown-btn"
@@ -156,7 +156,7 @@ const Header = () => {
                         Gallery
                       </button>
                     </Link>
-                  </li>
+                  </li> */}
                   <li className="linked-list__item">
                     <Link to={`/blogs`}>
                       <button

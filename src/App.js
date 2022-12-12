@@ -18,7 +18,7 @@ function App() {
       <Layout>
         <Video />
         <Slider />
-        <EditorPicks />
+        {/* <EditorPicks /> */}
       </Layout>
     </>
   );
