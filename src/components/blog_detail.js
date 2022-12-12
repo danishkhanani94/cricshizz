@@ -3,7 +3,7 @@ import axios from "axios";
 import { format } from "timeago.js";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import MetaTags from "react-meta-tags";
+import { Helmet } from "react-helmet";
 
 const BlogDetail = () => {
   const [Blogs, SetBlogs] = useState({});
@@ -28,6 +28,21 @@ const BlogDetail = () => {
   }, []);
   return (
     <>
+      <Helmet prioritizeSeoTags>
+        <meta name="author" content={`${process.env.REACT_APP_NAME}`} />
+        <meta property="og:url" content={window.location.href} />
+        <title>{`${process.env.REACT_APP_NAME} | ${Blogs?.title}`} </title>
+        <meta name="description" content={Blogs?.description} />
+        <meta
+          property="og:title"
+          content={`${process.env.REACT_APP_NAME} | ${Blogs?.title}`}
+        />
+        <meta
+          property="og:image"
+          content={`${process.env.REACT_APP_BUCKET_URL}${Blogs?.banner_main}`}
+        />
+        <meta property="og:type" content="website" />
+      </Helmet>
       <div className="brand-strip brand-strip--tall"></div>
       <main
         id="main-content"
@@ -92,25 +107,45 @@ const BlogDetail = () => {
                 <div className="article__container">
                   <p className="article__summary">{Blogs.description}</p>
                   <div className="text-align-center embeddable-cta mb-3">
-                    {Blogs.gallery !== undefined && Blogs.gallery !== 0 ? (
-                      <Link
-                        to={`/gallery/${Blogs.gallery}`}
+                    {Blogs.match_summary !== undefined &&
+                    Blogs.match_summary !== "" ? (
+                      <a
+                        target="_blank"
+                        href={`${Blogs.match_summary}`}
                         className="btn_v_glry embeddable-cta__button embeddable-cta__button--gradient-bg"
                       >
-                        View Gallery{" "}
+                        Match Summary
                         <svg class="embeddable-cta__arrow">
                           <use
                             xmlnsXlink="http://www.w3.org/1999/xlink"
                             xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-chevron-right"
                           ></use>
                         </svg>
-                      </Link>
+                      </a>
                     ) : (
                       ""
                     )}
                   </div>
                   <div className="article__content">
                     <p>{Blogs.longdescription}</p>
+                    <div className="text-align-center embeddable-cta mb-3">
+                      {Blogs.gallery !== undefined && Blogs.gallery !== 0 ? (
+                        <Link
+                          to={`/gallery/${Blogs.gallery}`}
+                          className="btn_v_glry embeddable-cta__button embeddable-cta__button--gradient-bg"
+                        >
+                          View Gallery{" "}
+                          <svg class="embeddable-cta__arrow">
+                            <use
+                              xmlnsXlink="http://www.w3.org/1999/xlink"
+                              xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-chevron-right"
+                            ></use>
+                          </svg>
+                        </Link>
+                      ) : (
+                        ""
+                      )}
+                    </div>
                     <img
                       src={`${process.env.REACT_APP_BUCKET_URL}${Blogs.banner_main}`}
                       alt="Shaun Pollock"
@@ -145,21 +180,6 @@ const BlogDetail = () => {
           </div>
         </div>
       </main>
-      <MetaTags>
-        <meta name="author" content={`${process.env.REACT_APP_NAME}`} />
-        <meta property="og:url" content={window.location.href} />
-        <title>{`${process.env.REACT_APP_NAME} | ${Blogs?.title}`} </title>
-        <meta name="description" content={Blogs?.description} />
-        <meta
-          property="og:title"
-          content={`${process.env.REACT_APP_NAME} | ${Blogs?.title}`}
-        />
-        <meta
-          property="og:image"
-          content={`${process.env.REACT_APP_BUCKET_URL}${Blogs?.banner_main}`}
-        />
-        <meta property="og:type" content="website" />
-      </MetaTags>
     </>
   );
 };
