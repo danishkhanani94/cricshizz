@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.svg" />
+  <link rel="icon" href="/favicon.svg" />
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,7 +14,7 @@
 $r = $_SERVER['REQUEST_URI']; 
 $r = explode('/', $r);
 if($r[1] == "blog" && $r[2] == "detail" && $r[3] !== null){
-$url = "https://server.cricshizz.com.pk:5001/blogs/getByID/".$r[3];
+$url = "https://server.cricshizz.com.pk/blogs/getByID/".$r[3];
 $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -40,7 +40,7 @@ $banner_main = $result[0]->Data[0]->banner_main;
 <meta name="twitter:image" content="<?="https://bucket.cricshizz.com.pk/files/".$banner_main?>"/>
 <?php
 }else if($r[1] == "gallery" && $r[2] !== null){
-$url = "https://server.cricshizz.com.pk:5001/gallery/getByID/".$r[2];
+$url = "https://server.cricshizz.com.pk/gallery/getByID/".$r[2];
 $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_URL, $url);
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -77,6 +77,8 @@ $banner_main = $result[0]->Data[0]->mainbanner;
     window.RESOURCES_VERSION = 'icc-prod/v1.1.2';
   </script>
 
+    <script defer="defer" src="/static/js/main.fd8188a3.js"></script>
+    <link href="/static/css/main.657a4969.css" rel="stylesheet">
 
 </head>
 
