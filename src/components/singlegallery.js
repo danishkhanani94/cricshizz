@@ -2,39 +2,47 @@ import Lightroom from "react-lightbox-gallery";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
-const SingleGallery = (props) => {
+const SingleGallery = () => {
   const param = useParams();
-  var data = props.Gallery[0]?.innerimages;
   const [limitstart, SetLimitstart] = useState(0);
   const [limit, SetLimit] = useState(20);
-  const [Data, SetData] = useState(
-    data !== undefined ? data.slice(0, limit) : []
-  );
+  const [Data, SetData] = useState([]);
   const [more, SetMore] = useState(true);
-
-  var images = [];
-  if (data) {
-    data.forEach((e) => {
-      images.push({
-        src: process.env.REACT_APP_BUCKET_URL + e,
-      });
-    });
-  }
-  var settings = {
+  const [Images, SetImages] = useState([]);
+  const [Setting, SetSetting] = useState({
     columnCount: {
       default: 4,
       mobile: 1,
       tab: 2,
     },
     mode: "dark",
-  };
+  });
+  async function getGallery(id) {
+    SetData([]);
+    SetImages([]);
+    await axios
+      .get(`${process.env.REACT_APP_B_GALLERY_URL}${id}`)
+      .then((res) => {
+        const ResP = res.data.Data;
+        SetData(ResP);
+        ResP.map((e, i) => {
+          SetImages((oldArray) => [
+            ...oldArray,
+            { src: process.env.REACT_APP_B_GALLERY_G_URL + "" + id + "/" + e },
+          ]);
+        });
+      });
+  }
   useEffect(() => {
+    const { id } = param;
     fetchMoreData();
+    getGallery(id);
   }, []);
   const fetchMoreData = () => {
-    SetData(Data.concat(images.slice(limitstart, limit)));
-    if (images.slice(limitstart, limit).length < 1) {
+    SetData(Data.concat(Images.slice(limitstart, limit)));
+    if (Images.slice(limitstart, limit).length < 1) {
       SetMore(false);
     }
     SetLimit(limit + 10);
@@ -60,17 +68,17 @@ const SingleGallery = (props) => {
               </svg>
             </a>
           </header>
-          {Data.length > 0 ? (
+          {Images.length > 0 ? (
             <InfiniteScroll
-              dataLength={Data.length}
+              dataLength={999999}
               next={fetchMoreData}
               style={{ overflow: "hidden" }}
               hasMore={more}
             >
               <div className="content-hero__container">
                 <Lightroom
-                  images={Data}
-                  settings={settings}
+                  images={Images}
+                  settings={Setting}
                   className="img_hov_cur_pointer"
                 />
               </div>
