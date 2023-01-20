@@ -3,8 +3,9 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
-const SingleGallery = () => {
+const SingleGallery = (props) => {
   const param = useParams();
   const [limitstart, SetLimitstart] = useState(0);
   const [limit, SetLimit] = useState(20);
@@ -48,25 +49,45 @@ const SingleGallery = () => {
     SetLimit(limit + 10);
     SetLimitstart(limitstart + 10);
   };
-
   return (
     <>
       <section className={`content-listing theme-highlight widget`}>
         <div className="constraint-wrapper">
-          <header className="widget-header justify-content-right">
-            <a
-              href={`${process.env.REACT_APP_SERVER_URL}gallery/downloadall/${param?.id}`}
-              target="_blank"
-              className="btn_v_glry rigth_6_dwn embeddable-cta__button embeddable-cta__button--gradient-bg"
-            >
-              Download All
-              <svg className="embeddable-cta__arrow">
-                <use
-                  xmlnsXlink="http://www.w3.org/1999/xlink"
-                  xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-criiio-download"
-                ></use>
-              </svg>
-            </a>
+          <header className="widget-header justify-content-right w-h-cs">
+            {props.galleri.match_summary !== null && props.galleri.match_summary !== "" ? (
+              <a
+                href={props.galleri.match_summary}
+                target="_blank"
+                className="btn_v_glry rigth_6_dwn embeddable-cta__button embeddable-cta__button--gradient-bg"
+              >
+                Match Summary
+
+                <svg class="embeddable-cta__arrow">
+                  <use
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                    xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-chevron-right"
+                  ></use>
+                </svg>
+              </a>
+            ) : (
+              ""
+            )}
+            {props.galleri.blog_id !== null && props.galleri.blog_id !== "" ? (
+              <Link
+                to={`/blog/detail/${props.galleri.blog_id}`}
+                className="btn_v_glry rigth_6_dwn embeddable-cta__button embeddable-cta__button--gradient-bg"
+              >
+                View Blog
+                <svg class="embeddable-cta__arrow">
+                  <use
+                    xmlnsXlink="http://www.w3.org/1999/xlink"
+                    xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-chevron-right"
+                  ></use>
+                </svg>
+              </Link>
+            ) : (
+              ""
+            )}
           </header>
           {Images.length > 0 ? (
             <InfiniteScroll

@@ -108,7 +108,7 @@ const BlogDetail = () => {
                   <p className="article__summary">{Blogs.description}</p>
                   <div className="text-align-center embeddable-cta mb-3">
                     {Blogs.match_summary !== undefined &&
-                    Blogs.match_summary !== "" ? (
+                      Blogs.match_summary !== "" ? (
                       <a
                         target="_blank"
                         href={`${Blogs.match_summary}`}
@@ -128,44 +128,41 @@ const BlogDetail = () => {
                   </div>
                   <div className="article__content">
                     <p>{Blogs.longdescription}</p>
-                    {/* <div className="text-align-center embeddable-cta mb-3">
-                      {Blogs.gallery !== undefined && Blogs.gallery !== 0 ? (
-                        <Link
-                          to={`/gallery/${Blogs.gallery}`}
-                          className="btn_v_glry embeddable-cta__button embeddable-cta__button--gradient-bg"
-                        >
-                          View Gallery{" "}
-                          <svg class="embeddable-cta__arrow">
-                            <use
-                              xmlnsXlink="http://www.w3.org/1999/xlink"
-                              xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-chevron-right"
-                            ></use>
-                          </svg>
-                        </Link>
-                      ) : (
-                        ""
-                      )}
-                    </div> */}
-                    
                     <div className="text-align-center embeddable-cta mb-3">
-                      {Blogs.fb_gallery !== undefined && Blogs.fb_gallery !== "" ? (
-                        <a
-                        target="_blank"
-                        href={`${Blogs.fb_gallery}`}
-                          className="btn_v_glry embeddable-cta__button embeddable-cta__button--gradient-bg"
-                        >
-                          View Gallery{" "}
-                          <svg class="embeddable-cta__arrow">
-                            <use
-                              xmlnsXlink="http://www.w3.org/1999/xlink"
-                              xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-chevron-right"
-                            ></use>
-                          </svg>
-                        </a>
-                      ) : (
-                        ""
-                      )}
+                      {
+                        Blogs.gallery !== undefined && Blogs.gallery !== 0 ? (
+                          <Link
+                            to={`/gallery/${Blogs.gallery}`}
+                            className="btn_v_glry embeddable-cta__button embeddable-cta__button--gradient-bg"
+                          >
+                            View Gallery{" "}
+                            <svg class="embeddable-cta__arrow">
+                              <use
+                                xmlnsXlink="http://www.w3.org/1999/xlink"
+                                xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-chevron-right"
+                              ></use>
+                            </svg>
+                          </Link>
+                        ) : Blogs.fb_gallery !== undefined && Blogs.fb_gallery !== "" ? (
+                          <a
+                            target="_blank"
+                            href={`${Blogs.fb_gallery}`}
+                            className="btn_v_glry embeddable-cta__button embeddable-cta__button--gradient-bg"
+                          >
+                            View Gallery{" "}
+                            <svg class="embeddable-cta__arrow">
+                              <use
+                                xmlnsXlink="http://www.w3.org/1999/xlink"
+                                xlinkHref="/resources/prod/v8.28.1/i/svg-output/icons.svg#icn-chevron-right"
+                              ></use>
+                            </svg>
+                          </a>
+                        ) : (
+                          ""
+                        )
+                      }
                     </div>
+
                     <img
                       src={`${process.env.REACT_APP_BUCKET_URL}${Blogs.banner_main}`}
                       alt="Shaun Pollock"

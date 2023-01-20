@@ -32,7 +32,6 @@ $banner_main = $result[0]->Data[0]->banner_main;
 <meta property="og:type" content="website" />
 <meta property="og:description" content="<?=$description?>">
 <meta property="og:image" content="<?="https://bucket.cricshizz.com.pk/files/".$banner_main?>">
-<meta property="og:url" content="https://cricshizz.com.pk">
 <meta name="twitter:card" content="summary_large_image">
 
 <meta name="twitter:title" content="<?=$title?>">
@@ -58,7 +57,6 @@ $banner_main = $result[0]->Data[0]->mainbanner;
 <meta property="og:type" content="website" />
 <meta property="og:description" content="<?=$description?>">
 <meta property="og:image" content="<?="https://bucket.cricshizz.com.pk/files/".$banner_main?>">
-<meta property="og:url" content="https://cricshizz.com.pk">
 <meta name="twitter:card" content="summary_large_image">
 
 <meta name="twitter:title" content="<?=$title?>">
