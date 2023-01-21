@@ -1277,6 +1277,25 @@ video[poster] {
     right: 0.6rem;
 }
 
-.justify-content-right{
+.justify-content-right {
     justify-content: right;
+}
+
+.item-row-light {
+    max-width: 400px;
+    max-height: 400px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.item-row-light img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.row-l-b {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
 }
