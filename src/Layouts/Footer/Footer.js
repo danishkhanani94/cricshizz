@@ -42,48 +42,6 @@ const Footer = () => {
             </section>
           </div>
         </section>
-        {/* <section className="footer__main">
-          <div className="flxex_ftrow">
-            <div className="ft_col">
-              <div className="ft_headeing">
-                <h4>KHELO KRICKET</h4>
-              </div>
-              <ul className="ft_ul">
-                <li>Men’s Cricket</li>
-                <li>Women’s Cricket</li>
-                <li>Tournaments</li>
-                <li>Teams</li>
-              </ul>
-            </div>
-            <div className="ft_col">
-              <div className="ft_headeing">
-                <h4>DEKHO KRICKET</h4>
-              </div>
-              <ul className="ft_ul">
-                <li>Video Gallery</li>
-                <li>Photo Gallery</li>
-              </ul>
-            </div>
-            <div className="ft_col">
-              <div className="ft_headeing">
-                <h4>More</h4>
-              </div>
-              <ul className="ft_ul">
-                <li>News</li>
-                <li>Team Registration</li>
-              </ul>
-            </div>
-            <div className="ft_col">
-              <div className="ft_headeing">
-                <h4>Privacy</h4>
-              </div>
-              <ul className="ft_ul">
-                <li>Leagal Notice</li>
-                <li>Privacy Policy</li>
-              </ul>
-            </div>
-          </div>
-        </section> */}
         <div className="footer__main border-0">
           <span></span>
           <div className="footer__social">

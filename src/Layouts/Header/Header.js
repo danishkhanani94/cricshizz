@@ -58,7 +58,11 @@ const Header = () => {
                       Gallery
                     </Link>
                   </li>
-
+                  {/* <li className="linked-list__item">
+                    <Link to={`/team`} className="linked-list__link">
+                        Teams
+                    </Link>
+                  </li> */}
                   <li className="linked-list__item">
                     <Link className="linked-list__link" to="/blogs">
                       Blogs
@@ -157,6 +161,16 @@ const Header = () => {
                       </button>
                     </Link>
                   </li>
+                  {/* <li className="linked-list__item">
+                    <Link to={`/team`}>
+                      <button
+                        className="linked-list__dropdown-label js-dropdown-btn"
+                        aria-haspopup="true"
+                      >
+                        Teams
+                      </button>
+                    </Link>
+                  </li> */}
                   <li className="linked-list__item">
                     <Link to={`/blogs`}>
                       <button

@@ -1299,3 +1299,175 @@ video[poster] {
     justify-content: center;
     flex-wrap: wrap;
 }
+
+.no-b-radius-n {
+    border-radius: 0px !important;
+    position: relative;
+    padding-bottom: 0 !important;
+}
+
+.nbn_psa {
+    text-align: center;
+    margin-top: -6rem;
+    z-index: 99;
+    position: relative;
+}
+
+.team-prof-lgo {
+    height: 70px;
+    z-index: 10;
+    text-align: center;
+    position: relative;
+}
+
+.team-prof-lgo img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50px;
+    height: 70px;
+    z-index: 10;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+}
+
+.team-list__name {
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    text-align: center !important;
+    -webkit-transform: translateZ(0);
+    padding: 0.8rem 0;
+    font-size: 2.2rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.tl_tp_btn {
+    display: inline-block;
+    position: relative;
+    line-height: 1.2;
+    padding: 1.2rem 2rem;
+    background: #fff;
+    border: 1px solid #e6e9f0;
+    color: #001036;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .2s ease, border .2s ease, color .2s ease;
+    border: none;
+    color: #fff;
+    z-index: 10;
+    margin: 0.5rem 0;
+    font-size: 1.3rem;
+    background-color: #ffffff78;
+    width: 100%;
+}
+
+.bg-clo-temed {
+    background: linear-gradient(0deg, #000, #000 75%, hsla(0, 0%, 100%, 0));
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.team-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gallery-item {
+    margin-top: 40px !important;
+    margin-left: 10px;
+    border-radius: 5%;
+    min-height: 330px;
+    max-width: 200px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+}
+
+#team-content .gallery-item {
+    flex-basis: 23%;
+    margin-bottom: 15px !important;
+    margin-right: 10px !important;
+    background-size: cover !important;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-align: start;
+    scroll-behavior: smooth;
+    flex-shrink: 0;
+    flex-grow: 0;
+    display: none;
+    position: relative;
+}
+
+#team-content .gallery-item:nth-child(-n+4) a {
+    display: block;
+}
+
+#team-content .gallery-item a {
+    font-family: poppins !important;
+    font-size: 15px;
+    text-align: left;
+    color: white !important;
+    line-height: 2;
+    position: absolute;
+    text-decoration: none !important;
+    bottom: 0;
+    display: none;
+}
+
+.gallery-item a {
+    padding: 0 0 20px 10px;
+    z-index: 9;
+}
+
+.gallery-item a div.wp-caption-text.gallery-caption.small-3.columns.has-number {
+    text-align: left !important;
+    font-size: 16px !important;
+    color: #FFFFFF !important;
+    line-height: 15px !important;
+}
+
+.wp-caption-text.gallery-caption.small-3.columns.has-number {
+    color: black !important;
+    font-family: poppins;
+    font-size: 15px !important;
+    padding: 0px !important;
+    padding-bottom: 10px !important;
+}
+
+#team-content .gallery-item a .team-player-name {
+    color: #10E271;
+    text-align: left !important;
+    font-size: 12px !important;
+    line-height: 15px !important;
+    padding: 0px !important;
+}
+
+@media (max-width: 845px) {
+    .cwou8rgh {
+        justify-content: center !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .cwou8rgh {
+        justify-content: center !important;
+    }
+
+    .cwou8rgh .gallery-item {
+        flex-basis: 100% !important;
+    }
+}

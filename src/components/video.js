@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 const SliderVideo = () => {
   useEffect(() => {
     document.querySelectorAll("video")[0].play();
@@ -45,7 +44,6 @@ const SliderVideo = () => {
                 tabIndex="-1"
                 role="application"
                 src="/video/slider.mp4"
-                poster="https://bucket.cricshizz.com.pk/files/5b54635-c23a-1c4a-7ea-07575014dfeMainPic.jpg"
               ></video>
               <script src="https://vjs.zencdn.net/vttjs/0.15.3/vtt.global.min.js"></script>
               <div

@@ -69,7 +69,10 @@ $banner_main = $result[0]->Data[0]->mainbanner;
   <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri:400,500,600,700" rel="stylesheet">
 
   <script src="/cdn.polyfill.io/v2/polyfill.min.js"></script>
+  <script src="/owl/j.js"></script>
   <link rel="stylesheet" href="/resources/icc-prod/v1.1.2/styles/screen.css" />
+  <link rel="stylesheet" href="/owl/owl.css" />
+
 
   <script>
     window.RESOURCES_VERSION = 'icc-prod/v1.1.2';
@@ -104,6 +107,7 @@ $banner_main = $result[0]->Data[0]->mainbanner;
 <script src="/resources/icc-prod/v1.1.2/scripts/vendors.min.js"></script>
 <script src="/resources/icc-prod/v1.1.2/scripts/main.min.js"></script>
 <script src="/resources/icc-prod/v1.1.2/widgets/common.min.js"></script>
+<script src="/owl/owl.js"></script>
 <script type="text/javascript">
   svg4everybody();
 </script>

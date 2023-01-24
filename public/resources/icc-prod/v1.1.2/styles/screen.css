@@ -10454,3 +10454,131 @@ p a:focus {
         display: none
     }
 }
+
+
+.hof-bio-carousel {
+    padding: 0 0 4rem;
+    overflow: hidden
+}
+
+.hof-bio-carousel__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2.4rem 4rem
+}
+
+.hof-bio-carousel__header-logo {
+    width: 12.6rem;
+    height: 4rem
+}
+
+.hof-bio-carousel__carousel-controls {
+    display: flex;
+    align-items: center
+}
+
+.hof-bio-carousel .content-slider__outer-wrapper {
+    padding: 0 4rem
+}
+
+.hof-bio-carousel .content-slider__item {
+    width: 25.9rem!important;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 1.6rem;
+    margin-right: 0
+}
+
+.hof-bio-carousel .content-slider__item:first-of-type {
+    margin-left: 0
+}
+
+.hof-bio-carousel__header-link {
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 0;
+    color: inherit;
+    text-decoration: none;
+    font-family: Hind Siliguri,Arial,Helvetica Neue,Helvetica,sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    color: #fff;
+    background: hsla(0,0%,100%,.1);
+    border-radius: .8rem;
+    padding: 1.1rem 1.6rem;
+    margin-right: 2.4rem;
+    transition: background .25s ease
+}
+
+.hof-bio-carousel__header-link:focus {
+    background: hsla(0,0%,100%,.3);
+    color: #fff
+}
+
+@media (min-width: 52.5em) {
+    .hof-bio-carousel__header-link:hover {
+        background:hsla(0,0%,100%,.3);
+        color: #fff
+    }
+}
+
+.hof-bio-carousel__header-link.is-active {
+    background: #fff;
+    color: #0d1635
+}
+
+.hof-bio-carousel .pager {
+    display: none
+}
+
+@media (min-width: 52.5em) {
+    .hof-bio-carousel--horizontal .content-slider__inner-wrapper>li {
+        width:50%
+    }
+}
+
+@media (min-width: 40em) and (max-width:52.49em) {
+    .hof-bio-carousel--horizontal .content-slider__inner-wrapper>li {
+        width:55%
+    }
+}
+
+@media (max-width: 52.49em) {
+    .hof-bio-carousel {
+        padding-bottom:2.8rem
+    }
+
+    .hof-bio-carousel__header {
+        padding: 2.4rem
+    }
+
+    .hof-bio-carousel__header-link {
+        font-size: 1.2rem;
+        padding: 1rem 1.2rem .8rem;
+        margin-right: 1.2rem
+    }
+
+    .hof-bio-carousel .content-slider__outer-wrapper {
+        padding: 0
+    }
+
+    .hof-bio-carousel .content-slider__item:first-child {
+        margin-left: 2.4rem
+    }
+}
+
+@media (max-width: 39.99em) {
+    .hof-bio-carousel .content-slider__item:first-child {
+        margin-left:1.6rem
+    }
+}
+
+@media (max-width: 28.125em) {
+    .hof-bio-carousel .content-slider__inner-wrapper>li {
+        width:70%!important
+    }
+}

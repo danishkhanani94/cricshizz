@@ -3,28 +3,29 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+import { HelmetProvider } from "react-helmet-async";
 
-import App from "./App";
-import Blog from "./pages/Blog";
-import Blogs from "./pages/Blogs";
-import Gallery from "./pages/Gallery";
-import SingleGallery from "./pages/SingleGallery";
+import App from "./App"
+import Blog from "./pages/Blog"
+import Blogs from "./pages/Blogs"
+import Gallery from "./pages/Gallery"
+import SingleGallery from "./pages/SingleGallery"
+import SingleTeam from './pages/SingleTeam'
+import Team from './pages/team'
+
 const helmetContext = {};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <HelmetProvider context={helmetContext}>
     <BrowserRouter>
-      <Helmet>
-        <title>CRIC SHIZZ - For Every Match There Is A Moment To Capture</title>
-        <link rel="canonical" href="https://cricshizz.com.pk" />
-      </Helmet>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/blog/detail/:id" element={<Blog />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/team/:id" element={<SingleTeam />} />
         <Route path="/gallery/:id" element={<SingleGallery />} />
       </Routes>
     </BrowserRouter>
